@@ -1,0 +1,38 @@
+IoT LockChain Project Setup and Run Instructions
+
+1. Ensure you have Python 3.10+ installed on your system.
+
+2. Create a project folder (e.g., iot-lockchain-final) and place all project files inside it: dashboard.py, kma_server.py, iot_device.py, requirements.txt, and the 'common' folder (with constants.py and crypto_utils.py inside).
+
+3. Open a terminal/Command Prompt in the project folder and install dependencies:
+   pip install -r requirements.txt
+
+4. (Optional) Delete devices_db.json if it exists to start with a clean database.
+
+5. Run the KMA server in Terminal 1:
+   python kma_server.py
+   - You should see: "[SERVER] Running on port 8888 – READY"
+
+6. Run the dashboard in Terminal 2:
+   python dashboard.py
+   - Open a browser and go to http://localhost:5000
+   - The page auto-refreshes every 4 seconds to show updates.
+
+7. Register devices in Terminal 3 (and more terminals as needed):
+   python iot_device.py
+   - This registers 8 devices by default.
+   - To register a custom number: python iot_device.py --num 10 (for 10 devices).
+   - Run this script multiple times in separate terminals to add more devices (e.g., run twice for 16 devices total).
+   - Keep these terminals open to maintain device connections (pings and data sending).
+
+8. Interact with the dashboard:
+   - View registered devices, status, heartbeats, and key versions.
+   - Use "Force Rotation" button to manually rotate keys.
+   - Revoke or Activate individual devices via buttons.
+   - Keys auto-rotate every 20 seconds if active devices exist.
+
+9. Troubleshooting:
+   - If connections fail: Ensure port 8888 is consistent in iot_device.py and kma_server.py (change if needed).
+   - View console outputs in terminals for logs (e.g., rotations, registrations).
+
+Project by Mohammed Asjad & Mohammed Rayees Ahmed • Computer Networks Project
